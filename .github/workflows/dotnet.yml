@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        $days=Get-ChildItem -name day* | ConvertTo-Json -Compress
+        $days=Get-ChildItem -name day* | ConvertTo-Json -Compress -AsArray
         echo $days
         echo "::set-output name=matrix::$days"
       shell: pwsh
