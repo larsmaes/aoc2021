@@ -7,27 +7,27 @@ on:
     branches: [ master ]
 
 jobs:
-  determineDays:
-    name: Determining which days to build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: |
-        $days=Get-ChildItem -name day* | ConvertTo-Json -Compress -AsArray
-        echo $days
-        echo "::set-output name=matrix::$days"
-      shell: pwsh
-      id: set-matrix
-    outputs:
-            matrix: ${{ steps.set-matrix.outputs.matrix }}
+  # determineDays:
+  #   name: Determining which days to build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - run: |
+  #       $days=Get-ChildItem -name day* | ConvertTo-Json -Compress -AsArray
+  #       echo $days
+  #       echo "::set-output name=matrix::$days"
+  #     shell: pwsh
+  #     id: set-matrix
+  #   outputs:
+  #           matrix: ${{ steps.set-matrix.outputs.matrix }}
 
   build:
     runs-on: ubuntu-latest
-    needs: determineDays
-    strategy:
-      matrix:
-        day: ${{ fromJson(needs.determineDays.outputs.matrix) }}
-    name: "Building: ${{ matrix.day }}"
+    # needs: determineDays
+    # strategy:
+    #   matrix:
+    #     day: ${{ fromJson(needs.determineDays.outputs.matrix) }}
+    # name: "Building: ${{ matrix.day }}"
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -36,10 +36,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: "${{ matrix.day }}"
+      # working-directory: "${{ matrix.day }}"
     - name: Build
       run: dotnet build --no-restore
-      working-directory: "${{ matrix.day }}"
+      # working-directory: "${{ matrix.day }}"
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: "${{ matrix.day }}"
+      # working-directory: "${{ matrix.day }}"
