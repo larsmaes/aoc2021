@@ -41,5 +41,8 @@ jobs:
       run: dotnet build --no-restore
       # working-directory: "${{ matrix.day }}"
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal --logger trx
       # working-directory: "${{ matrix.day }}"
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.5.0
+    
