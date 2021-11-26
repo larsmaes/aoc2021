@@ -16,6 +16,7 @@ jobs:
         echo $days
         echo "::set-output name=matrix::$days"
       shell: pwsh
+      id: set-matrix
     outputs:
             matrix: ${{ steps.set-matrix.outputs.matrix }}
   build:
