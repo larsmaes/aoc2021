@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: "::set-output name=matrix::$(./determineDays.ps)"
+    - run: "echo \"::set-output name=matrix::$(Get-ChildItem -name day* | ConvertTo-Json -Compress)\""
+      shell: pwsh
     outputs:
             matrix: ${{ steps.set-matrix.outputs.matrix }}
   build:
@@ -30,10 +31,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: "day${{ matrix.day }}"
+      working-directory: "${{ matrix.day }}"
     - name: Build
       run: dotnet build --no-restore
-      working-directory: "day${{ matrix.day }}"
+      working-directory: "${{ matrix.day }}"
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: "day${{ matrix.day }}"
+      working-directory: "${{ matrix.day }}"
