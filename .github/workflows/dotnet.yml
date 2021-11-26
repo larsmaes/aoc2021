@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: "::set-output name=matrix::$(pwsh ./determineDays.ps)"
+    - run: "::set-output name=matrix::$(determineDays.ps)"
     outputs:
             matrix: ${{ steps.set-matrix.outputs.matrix }}
   build:
