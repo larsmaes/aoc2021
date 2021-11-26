@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        day: [1]
+        day: "${{ fromJson(pwsh ./determineDay.ps) }}"
     name: "Building Day ${{ matrix.day }}"
     steps:
     - uses: actions/checkout@v2
