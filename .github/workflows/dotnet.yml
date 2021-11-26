@@ -47,7 +47,6 @@ jobs:
       uses: dorny/test-reporter@v1.5.0
       with:
         name: TRX Tests            # Name of the check run which will be created
-        path: */TestResults/*.trx  # Path to test results
+        path: '*/TestResults/*.trx'  # Path to test results
         reporter: dotnet-trx
-      reporter: jest-junit   
     
