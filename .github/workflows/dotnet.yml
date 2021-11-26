@@ -7,13 +7,20 @@ on:
     branches: [ master ]
 
 jobs:
+  determineDays:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: "::set-output name=matrix::$(pwsh ./determineDays.ps)"
+    outputs:
+            matrix: ${{ steps.set-matrix.outputs.matrix }}
   build:
 
     runs-on: ubuntu-latest
-
+    needs: determineDays
     strategy:
       matrix:
-        day: "${{ fromJson(pwsh ./determineDay.ps) }}"
+        day: ${{ fromJson(needs.determineDays.outputs.matrix) }}
     name: "Building Day ${{ matrix.day }}"
     steps:
     - uses: actions/checkout@v2
