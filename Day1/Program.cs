@@ -9,4 +9,8 @@ var sonar = new AoC2021.Sonar();
 
 int depthIncreases = sonar.depthIncreaseReport(depths);
 
-System.Console.WriteLine($"Part1: Number of depth increases: {depthIncreases}");
+System.Console.WriteLine($"Part 1: Number of depth increases: {depthIncreases}");
+
+int depthIncreasesSlidingWindow = sonar.depthIncreaseSlidingWindowReport(depths);
+
+System.Console.WriteLine($"Part 2: Number of depth increases with sliding window: {depthIncreasesSlidingWindow}");

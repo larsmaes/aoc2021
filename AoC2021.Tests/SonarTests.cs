@@ -5,10 +5,8 @@ namespace AoC2021.Tests;
 
 public class SonarTest
 {
-    [Fact]
-    public void TestDepthIncreaseReport()
-    {
-        var depths = new List<int> {
+
+  private List<int> depths = new List<int> {
             199,
             200,
             208,
@@ -20,10 +18,24 @@ public class SonarTest
             260,
             263
         };
-        var sonar = new Sonar();
 
-        var result = sonar.depthIncreaseReport(depths);
+  [Fact]
+  public void TestDepthIncreaseReport()
+  {
+    var sonar = new Sonar();
 
-        Assert.Equal(7,result);
-    }
+    var result = sonar.depthIncreaseReport(depths);
+
+    Assert.Equal(7, result);
+  }
+
+  [Fact]
+  public void TestDepthIncreaseReportSlidingWindow()
+  {
+    var sonar = new Sonar();
+
+    var result = sonar.depthIncreaseSlidingWindowReport(depths);
+
+    Assert.Equal(5, result);
+  }
 }
