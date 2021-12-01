@@ -22,9 +22,8 @@ public class SonarTest
   [Fact]
   public void TestDepthIncreaseReport()
   {
-    var sonar = new Sonar();
 
-    var result = sonar.depthIncreaseReport(depths);
+    var result = Sonar.depthIncreaseReport(depths);
 
     Assert.Equal(7, result);
   }
@@ -32,9 +31,8 @@ public class SonarTest
   [Fact]
   public void TestDepthIncreaseReportSlidingWindow()
   {
-    var sonar = new Sonar();
 
-    var result = sonar.depthIncreaseSlidingWindowReport(depths,3);
+    var result = Sonar.depthIncreaseSlidingWindowReport(depths,3);
 
     Assert.Equal(5, result);
   }
