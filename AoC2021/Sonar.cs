@@ -7,10 +7,10 @@ public class Sonar
   public static int depthIncreaseReport(List<int> depths)
   {
     int increase = 0;
-    int previousDepth = 0;
+    int? previousDepth = null;
     foreach (int depth in depths)
     {
-      if (previousDepth != 0)
+      if (previousDepth != null)
       {
         if (depth > previousDepth)
         {
