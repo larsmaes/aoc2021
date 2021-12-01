@@ -1,6 +1,6 @@
 {
   "FSharp.suggestGitignore": false,
-  "dotnet-test-explorer.testArguments": "--collect:\"XPlat Code Coverage\" --settings coverlet.xml",
+  // "dotnet-test-explorer.testArguments": "--collect:\"XPlat Code Coverage\" --settings coverlet.xml",
   "coverage-gutters.coverageFileNames": [
     "lcov.info",
     "cov.xml",
