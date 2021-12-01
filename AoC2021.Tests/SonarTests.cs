@@ -34,7 +34,7 @@ public class SonarTest
   {
     var sonar = new Sonar();
 
-    var result = sonar.depthIncreaseSlidingWindowReport(depths);
+    var result = sonar.depthIncreaseSlidingWindowReport(depths,3);
 
     Assert.Equal(5, result);
   }

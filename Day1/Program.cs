@@ -11,6 +11,6 @@ int depthIncreases = sonar.depthIncreaseReport(depths);
 
 System.Console.WriteLine($"Part 1: Number of depth increases: {depthIncreases}");
 
-int depthIncreasesSlidingWindow = sonar.depthIncreaseSlidingWindowReport(depths);
+int depthIncreasesSlidingWindow = sonar.depthIncreaseSlidingWindowReport(depths,3);
 
 System.Console.WriteLine($"Part 2: Number of depth increases with sliding window: {depthIncreasesSlidingWindow}");
