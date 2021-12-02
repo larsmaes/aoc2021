@@ -7,36 +7,12 @@ public class SubmarineTest
 {
 
   List<Movement> movements = new List<Movement>{
-    new Movement
-    { 
-      Direction="forward", 
-      Distance=5
-    },
-    new Movement
-    { 
-      Direction="down", 
-      Distance=5
-    },
-    new Movement
-    { 
-      Direction="forward", 
-      Distance=8
-    },
-    new Movement
-    { 
-      Direction="up", 
-      Distance=3
-    },
-    new Movement
-    { 
-      Direction="down", 
-      Distance=8
-    },
-    new Movement
-    { 
-      Direction="forward", 
-      Distance=2
-    },
+    new Movement("forward", 5),
+    new Movement("down", 5),
+    new Movement("forward", 8),
+    new Movement("up", 3),
+    new Movement("down", 8),
+    new Movement("forward", 2),
   };
 
   [Fact]

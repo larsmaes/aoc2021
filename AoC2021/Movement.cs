@@ -1,7 +1,14 @@
 namespace AoC2021;
 
-public record Movement
+public readonly struct Movement
 {
-    public string Direction{ get; init; } = default!;
-    public int Distance { get; init; } = default!;
-};
+  public Movement(string direction, int distance)
+  {
+    Direction = direction;
+    Distance = distance;
+  }
+
+  public string Direction { get; init; }
+  public int Distance { get; init; }
+
+}

@@ -22,6 +22,7 @@ public class Submarine
     }
   }
 
+  [Obsolete("Move is wrong, please use MoveWithAim")]
   public void Move(string direction, int distance)
   {
     switch (direction)
