@@ -7,5 +7,10 @@
     "coverage.xml",
     "jacoco.xml",
     "coverage.info"
-  ]
+  ],
+  "csharp.semanticHighlighting.enabled": true,
+  "omnisharp.enableImportCompletion": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.organizeImportsOnFormat": true,
+  "editor.formatOnType": true
 }

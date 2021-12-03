@@ -22,7 +22,7 @@ public class Sonar
     return increase;
   }
 
-  
+
   /// <summary>This will output the number of depth increases found in the list of sweeped depths, where the calculation
   /// is based on a sliding window</summary>
   /// <param name="depths">List of integers that contain the depths that are sweeped by the Sonar</param>
