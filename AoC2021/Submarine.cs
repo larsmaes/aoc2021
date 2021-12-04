@@ -130,7 +130,6 @@ public class Submarine
     {
       var pivot = PivotDiagnostics(diagnosticlist);
       (char commonBit, char leastCommonBit) = determineMostAndLeastCommonBit(pivot.ElementAt(i));
-      //var r = OxygenGeneratorRateList.Where(l => l[i] == commonBits[i]);
       diagnosticlist = (from l in diagnosticlist
                         where l[i] == (crit == SearchCriteria.CommonBit ? commonBit : leastCommonBit)
                         select l).ToList();
