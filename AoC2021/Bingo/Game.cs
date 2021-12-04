@@ -3,23 +3,23 @@ namespace AoC2021.Bingo;
 public class Game
 {
 
-  private List<Card> BingoCards;
+  private readonly List<Board> BingoBoards;
 
-  public Game(List<Card> cards)
+  public Game(List<Board> boards)
   {
-    this.BingoCards = cards;
+    this.BingoBoards = boards;
   }
 
   public int? PlayTillFirstWin(int[] numbers)
   {
     foreach (int i in numbers)
     {
-      foreach (Card card in BingoCards)
+      foreach (Board board in BingoBoards)
       {
-        card.MarkNumber(i);
-        if (card.Won)
+        board.MarkNumber(i);
+        if (board.Won)
         {
-          return card.sumOfUnMarkedNumbers() * i;
+          return board.SumOfUnMarkedNumbers() * i;
         }
       }
     }
@@ -28,21 +28,21 @@ public class Game
 
   public int? PlayTillLastWin(int[] numbers)
   {
-    int NumberOfCards = BingoCards.Count;
-    int wonCards = 0;
+    int NumberOfBoards = BingoBoards.Count;
+    int wonBoards = 0;
     foreach (int i in numbers)
     {
-      foreach (Card card in BingoCards)
+      foreach (Board board in BingoBoards)
       {
-        if (!card.Won)
+        if (!board.Won)
         {
-          card.MarkNumber(i);
-          if (card.Won)
+          board.MarkNumber(i);
+          if (board.Won)
           {
-            wonCards++;
-            if (wonCards == NumberOfCards)
+            wonBoards++;
+            if (wonBoards == NumberOfBoards)
             {
-              return card.sumOfUnMarkedNumbers() * i;
+              return board.SumOfUnMarkedNumbers() * i;
             }
           }
         }

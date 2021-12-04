@@ -1,63 +1,62 @@
 namespace AoC2021.Bingo;
 
-public class Card
+public class Board
 {
 
-  public Number[,] numbers { get; init; }
+  public Number[,] Numbers { get; init; }
   public bool Won { get; private set; } = false;
-  public Card(Number[,] numbers)
+  public Board(Number[,] numbers)
   {
-    this.numbers = numbers;
+    this.Numbers = numbers;
   }
 
-  public void MarkNumber(int number) 
+  public void MarkNumber(int number)
   {
-    for(int r=0; r<5; r++)
+    for (int r = 0; r < 5; r++)
     {
       for (int c = 0; c < 5; c++)
       {
-        if (numbers[r,c].Value == number)
+        if (Numbers[r, c].Value == number)
         {
-          numbers[r, c].Mark();
+          Numbers[r, c].Mark();
           DetermineWin();
         }
       }
     }
   }
 
-  private void DetermineWin() 
+  private void DetermineWin()
   {
-    if (fullRow() || fullColumn())
+    if (FullRow() || FullColumn())
     {
       this.Won = true;
-      
-    } 
+    }
   }
 
-  public int sumOfUnMarkedNumbers()
+  public int SumOfUnMarkedNumbers()
   {
     int sum = 0;
-    for(int r=0; r<5; r++)
+    for (int r = 0; r < 5; r++)
     {
       for (int c = 0; c < 5; c++)
       {
-        if (!numbers[r,c].Marked)
+        if (!Numbers[r, c].Marked)
         {
-          sum+=numbers[r,c].Value;
+          sum += Numbers[r, c].Value;
         }
       }
     }
     return sum;
   }
 
-  private bool fullRow() 
+  private bool FullRow()
   {
-    for(int r=0; r<5; r++)
+    for (int r = 0; r < 5; r++)
     {
       bool fullyMarked = true;
       for (int c = 0; c < 5; c++)
       {
-        if (!numbers[r,c].Marked)
+        if (!Numbers[r, c].Marked)
         {
           fullyMarked = false;
         }
@@ -67,14 +66,14 @@ public class Card
     return false;
   }
 
-  private bool fullColumn()
+  private bool FullColumn()
   {
-    for(int c=0; c<5; c++)
+    for (int c = 0; c < 5; c++)
     {
       bool fullyMarked = true;
       for (int r = 0; r < 5; r++)
       {
-        if (!numbers[r,c].Marked)
+        if (!Numbers[r, c].Marked)
         {
           fullyMarked = false;
         }

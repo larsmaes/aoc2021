@@ -73,7 +73,7 @@ public class Submarine
 
     // Part 1
     List<string> pivotDiagnostics = PivotDiagnostics(diagnostics);
-    var (commonBits, leastCommonBits) = determineMostAndLeastCommonBits(pivotDiagnostics);
+    var (commonBits, leastCommonBits) = DetermineMostAndLeastCommonBits(pivotDiagnostics);
 
     this.GammaRate = Convert.ToInt32(commonBits.ToString(), 2);
     this.EpsilonRate = Convert.ToInt32(leastCommonBits.ToString(), 2);
@@ -83,7 +83,7 @@ public class Submarine
     this.CO2ScrubberRate = DiagnosticsRatingByCriteria(new(diagnostics), SearchCriteria.LeastCommonBit);
   }
 
-  private List<string> PivotDiagnostics(List<string> diagnostics)
+  private static List<string> PivotDiagnostics(List<string> diagnostics)
   {
     List<string> parsedDiagnostics = new();
 
@@ -101,13 +101,13 @@ public class Submarine
     return parsedDiagnostics;
   }
 
-  private (string, string) determineMostAndLeastCommonBits(List<string> bitlist)
+  private static (string, string) DetermineMostAndLeastCommonBits(List<string> bitlist)
   {
     StringBuilder commonBits = new();
     StringBuilder leastCommonBits = new();
     foreach (string p in bitlist)
     {
-      (char commonBit, char leastCommonBit) = determineMostAndLeastCommonBit(p);
+      (char commonBit, char leastCommonBit) = DetermineMostAndLeastCommonBit(p);
       commonBits.Append(commonBit);
       leastCommonBits.Append(leastCommonBit);
     }
@@ -115,7 +115,7 @@ public class Submarine
     return (commonBits.ToString(), leastCommonBits.ToString());
   }
 
-  private (char, char) determineMostAndLeastCommonBit(string bits)
+  private static (char, char) DetermineMostAndLeastCommonBit(string bits)
   {
     int ones = bits.Count(f => (f == '1'));
     int zeros = bits.Count(f => (f == '0'));
@@ -123,13 +123,13 @@ public class Submarine
     return (ones >= zeros ? '1' : '0', ones < zeros ? '1' : '0');
   }
 
-  private int DiagnosticsRatingByCriteria(List<string> diagnosticlist, SearchCriteria crit)
+  private static int DiagnosticsRatingByCriteria(List<string> diagnosticlist, SearchCriteria crit)
   {
     int iterations = (diagnosticlist.First<string>()).Length;
     for (int i = 0; i < iterations && diagnosticlist.Count > 1; i++)
     {
       var pivot = PivotDiagnostics(diagnosticlist);
-      (char commonBit, char leastCommonBit) = determineMostAndLeastCommonBit(pivot.ElementAt(i));
+      (char commonBit, char leastCommonBit) = DetermineMostAndLeastCommonBit(pivot.ElementAt(i));
       diagnosticlist = (from l in diagnosticlist
                         where l[i] == (crit == SearchCriteria.CommonBit ? commonBit : leastCommonBit)
                         select l).ToList();

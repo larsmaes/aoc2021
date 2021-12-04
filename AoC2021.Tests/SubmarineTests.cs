@@ -6,7 +6,7 @@ namespace AoC2021.Tests;
 public class SubmarineTest
 {
 
-  readonly List<Movement> movements = new List<Movement>{
+  readonly List<Movement> movements = new(){
     new Movement("forward", 5),
     new Movement("down", 5),
     new Movement("forward", 8),
@@ -15,7 +15,7 @@ public class SubmarineTest
     new Movement("forward", 2),
   };
 
-  readonly List<string> diagnostics = new List<string>{
+  readonly List<string> diagnostics = new(){
     "00100",
     "11110",
     "10110",
