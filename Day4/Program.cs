@@ -2,8 +2,7 @@
 
 string[] input = System.IO.File.ReadAllLines(@"input.txt");
 
-int[] play = Array.ConvertAll(input[0].Split(","), s => int.Parse(s));
-
+int[] drawOrder = Array.ConvertAll(input[0].Split(","), s => int.Parse(s));
 
 int inputLength = input.Length - 2;
 
@@ -29,6 +28,6 @@ for (int offset = 2; offset < inputLength; offset+=6)
 }
 
 Game bingoPart1 = new(boardListPart1);
-System.Console.WriteLine($"Part 1: Sum of winning Card: { bingoPart1.PlayTillFirstWin(play) }");
+System.Console.WriteLine($"Part 1: Sum of winning Card: { bingoPart1.PlayTillFirstWin(drawOrder) }");
 Game bingoPart2 = new(boardListPart2);
-System.Console.WriteLine($"Part 2: Sum of losing Card: { bingoPart2.PlayTillLastWin(play) }");
+System.Console.WriteLine($"Part 2: Sum of losing Card: { bingoPart2.PlayTillLastWin(drawOrder) }");

@@ -10,9 +10,9 @@ public class Game
     this.BingoBoards = boards;
   }
 
-  public int? PlayTillFirstWin(int[] numbers)
+  public int? PlayTillFirstWin(int[] drawOrder)
   {
-    foreach (int i in numbers)
+    foreach (int i in drawOrder)
     {
       foreach (Board board in BingoBoards)
       {
@@ -26,11 +26,11 @@ public class Game
     return null;
   }
 
-  public int? PlayTillLastWin(int[] numbers)
+  public int? PlayTillLastWin(int[] drawOrder)
   {
     int NumberOfBoards = BingoBoards.Count;
     int wonBoards = 0;
-    foreach (int i in numbers)
+    foreach (int i in drawOrder)
     {
       foreach (Board board in BingoBoards)
       {
