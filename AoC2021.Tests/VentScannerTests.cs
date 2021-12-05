@@ -30,6 +30,7 @@ public class VentScannerTests
     Assert.Equal(5,v.NumberOfOverlappingLines());
   }
 
+  [Fact]
   public void TestOverlappingLinesWithDiagonals()
   {
     VentScanner v = new();
