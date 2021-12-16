@@ -1,4 +1,4 @@
-namespace AoC2021.Test;
+namespace AoC2021.Tests;
 
 using System.Collections.Generic;
 using Xunit;

@@ -12,5 +12,7 @@
   "omnisharp.enableImportCompletion": true,
   "omnisharp.enableRoslynAnalyzers": true,
   "omnisharp.organizeImportsOnFormat": true,
-  "editor.formatOnType": true
+  "editor.formatOnType": true,
+  "dotnet-test-explorer.autoExpandTree": true,
+  "dotnet-test-explorer.autoWatch": true
 }

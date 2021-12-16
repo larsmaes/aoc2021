@@ -1,11 +1,18 @@
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace AoC2021.Tests;
 
 public class LavaTubesTests
 {
 
+  private readonly ITestOutputHelper output;
+
+  public LavaTubesTests(ITestOutputHelper output)
+  {
+    this.output = output;
+  }
   int[,] area = new int[,]
   {
       { 2,1,9,9,9,4,3,2,1,0 },
@@ -18,6 +25,7 @@ public class LavaTubesTests
   [Fact]
   public void TestFindLowestPoint()
   {
+    output.WriteLine($"Test out: { LavaTubes.FindLowestPoint(area) }");
     Assert.Equal(15, LavaTubes.FindLowestPoint(area));
   }
 

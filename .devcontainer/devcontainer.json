@@ -22,7 +22,8 @@
 		"fernandoescolar.vscode-solution-explorer",
 		"eamodio.gitlens",
 		"formulahendry.dotnet-test-explorer",
-		"ryanluker.vscode-coverage-gutters"
+		"ryanluker.vscode-coverage-gutters",
+		"fudge.auto-using"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
